@@ -1,4 +1,32 @@
-This is an example which shows how you can create an app for different locales without _rebuilding_ your whole app for every locale. It even features code completion and IntelliSense for translations in TypeScript.
+This is an example which shows how you can create an app for different locales without **rebuilding your whole app for every locale**. It even features code completion and IntelliSense for translations in TypeScript. It has just uses _one_ webpack config. All other localization strategies for webpack I could find use multple configs [like this one in the official repository](https://github.com/webpack/webpack/blob/master/examples/i18n/webpack.config.js#L7).
+
+It essentially translates this:
+
+```
+i18n/
+  # our translations, e.g. for de_DE and en_US
+src/
+  # our application code
+  # our application styles
+  # and everything else like assets
+```
+
+To this:
+
+```
+dist/
+  index-[hash].js
+  style-[hash].js
+  # and everything else like assets
+  de_DE/
+    # translations for de_DE with [hash]
+    index.html
+  en_US/
+    # translations for en_US with [hash]
+    index.html
+```
+
+`dist/de_DE/index.html` loads everything excpept translations for `en_US` and _vice versa_.
 
 **Note**: If anyone knows how to easily add **tree shaking for translations**, please write me. You'll see that our package contains two translations (`foo` and `bar`), but only one is used (`foo`). It would be nice, if the other translation (`bar`) could be removed from the build.
 
