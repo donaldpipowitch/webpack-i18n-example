@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <% const i18n = require('../i18n/' + htmlWebpackPlugin.options.locale + '.js')['@foo/i18n'] %>
+</head>
+<body>
+  <p>Your locale is: <%= htmlWebpackPlugin.options.locale %></p>
+  <p>You should see "<%= i18n.foo() %>" in your browser console.</p>
+</body>
+</html>
