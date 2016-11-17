@@ -1,5 +1,7 @@
 This is an example which shows how you can create an app for different locales without **rebuilding your whole app for every locale**. It even features code completion and IntelliSense for translations in TypeScript. It has just uses _one_ webpack config. All other localization strategies for webpack I could find use multple configs [like this one in the official repository](https://github.com/webpack/webpack/blob/master/examples/i18n/webpack.config.js#L7).
 
+Note: If we would have support for multiple `output`'s, this config could be much simpler. See https://github.com/webpack/webpack/issues/1189 for following the issue about multiple `output`'s.
+
 It essentially translates this:
 
 ```
